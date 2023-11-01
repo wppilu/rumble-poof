@@ -1,15 +1,25 @@
 //
 // Created by cracklu on 2023/11/1.
 //
+#include <sysinfoapi.h>
 #include "stdio.h"
 #include "math.h"
 
+
+void calcNarcissus1(int N);
 
 int main() {
     int N;
     // 如果 N 等于3
     scanf("%d", &N);
-    // 计算0到9的值N次幂的大小避免重复计算.
+    long t1 = GetTickCount();
+    calcNarcissus1(N);
+    long t2 = GetTickCount();
+    printf("time:%dms", t2 - t1);//前后之差即程序运行时间
+
+}
+
+void calcNarcissus1(int N) {// 计算0到9的值N次幂的大小避免重复计算.
     int array[10];
     for (int i = 0; i < 10; ++i) {
         array[i] = pow(i, N);
